@@ -1,0 +1,16 @@
+deployment:
+  production:
+    branch: production
+    commands:
+      - ./deploy_prod.sh
+  staging:
+    branch: master
+    commands:
+      - ./deploy_staging.sh
+
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - aws s3 sync jekyll/_site/docs s3://circle-production-static-site/docs/ --delete
